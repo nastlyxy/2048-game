@@ -12,4 +12,6 @@ typedef struct {
 GameState* init_game(int size);  
 void free_game(GameState *game);
 
+void add_random_tile(GameState *game);
+
 #endif
