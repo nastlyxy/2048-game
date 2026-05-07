@@ -3,15 +3,26 @@
 
 GameState* init_game(int size) {
     GameState *game = (GameState*)malloc(sizeof(GameState));
+    if (game == NULL) return NULL; 
     
     game->size = size;
     game->score = 0;
     game->is_game_over = 0;
 
     game->board = (int**)malloc(size * sizeof(int*));
+    if (game->board == NULL) {
+        free(game);
+        return NULL;
+    }
     
     for (int i = 0; i < size; i++) {
         game->board[i] = (int*)malloc(size * sizeof(int));
+        if (game->board[i] == NULL) {
+            for (int k = 0; k < i; k++) free(game->board[k]);
+            free(game->board);
+            free(game);
+            return NULL;
+        }
         for (int j = 0; j < size; j++) {
             game->board[i][j] = 0; 
         }
