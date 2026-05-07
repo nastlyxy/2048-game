@@ -74,7 +74,7 @@ void run_game_loop(GameState *game) {
     int screen_w = game->size * TILE_SIZE + 20;
     int screen_h = game->size * TILE_SIZE + 120;
 
-    SDL_Window *window = SDL_CreateWindow("2048 - Premium Edition", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_w, screen_h, SDL_WINDOW_SHOWN);
+    SDL_Window *window = SDL_CreateWindow("2048", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_w, screen_h, SDL_WINDOW_SHOWN);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
