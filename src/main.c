@@ -7,7 +7,7 @@
 
 int main() {
     srand(time(NULL));
-    GameState *game = init_game(4);
+    GameState *game = init_game(5);
 
     add_random_tile(game);
     add_random_tile(game);
