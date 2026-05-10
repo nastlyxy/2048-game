@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "io.h"
 
+// Save game status
 void save_game(GameState *game, const char *filename) {
     FILE *file = fopen(filename, "w");
     if (!file) return;
@@ -18,6 +19,7 @@ void save_game(GameState *game, const char *filename) {
     fclose(file);
 }
 
+// Reads Game Status from file
 GameState* load_game(const char *filename) {
     FILE *file = fopen(filename, "r");
     if (!file) return NULL;

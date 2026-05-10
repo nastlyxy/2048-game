@@ -7,6 +7,7 @@
 
 #define TILE_SIZE 100
 
+// Motion verification
 int can_move(GameState *game, char dir) {
     GameState *temp = init_game(game->size);
     for(int i=0; i<game->size; i++) {

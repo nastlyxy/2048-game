@@ -2,6 +2,7 @@
 #include "logic.h"
 
 GameState* init_game(int size) {
+    // Structure allocation
     GameState *game = (GameState*)malloc(sizeof(GameState));
     if (game == NULL) return NULL; 
     
@@ -9,12 +10,14 @@ GameState* init_game(int size) {
     game->score = 0;
     game->is_game_over = 0;
 
+    // Allocation of a scoreboard
     game->board = (int**)malloc(size * sizeof(int*));
     if (game->board == NULL) {
         free(game);
         return NULL;
     }
-    
+
+    // Allocation of each row separately
     for (int i = 0; i < size; i++) {
         game->board[i] = (int*)malloc(size * sizeof(int));
         if (game->board[i] == NULL) {
@@ -31,6 +34,7 @@ GameState* init_game(int size) {
     return game;
 }
 
+// Firing in reverse order
 void free_game(GameState *game) {
     if (game == NULL) return;
     for (int i = 0; i < game->size; i++) {
